@@ -26,10 +26,13 @@ RUN wget https://mise.jdx.dev/mise-latest-linux-x64 && \
     chmod a+x /usr/local/bin/mise
 
 # Activate mise
-RUN echo 'eval "$(/usr/local/bin/mise activate bash)"' >> /etc/bashrc
+RUN echo 'eval "$(/usr/local/bin/mise activate bash)"' >> /etc/bash.bashrc
 
 # Activate direnv
-RUN echo 'eval "$(direnv hook bash)"' >> /etc/bashrc
+RUN echo 'eval "$(direnv hook bash)"' >> /etc/bash.bashrc
+
+# Activate default distrobox prompt
+RUN echo '[ -e /etc/profile.d/distrobox_profile.sh ] && . /etc/profile.d/distrobox_profile.sh' >> /etc/skel/.bashrc
 
 # Run docker on the host
 RUN ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker
