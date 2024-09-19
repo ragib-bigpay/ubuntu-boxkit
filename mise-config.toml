@@ -1,0 +1,4 @@
+[tools]
+node = "21.6.2"
+postgres = "12"
+python = "3.10.12"
