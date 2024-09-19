@@ -18,14 +18,16 @@ RUN rm -f packages.microsoft.gpg
 
 # Setup vscode and build dependencies
 RUN apt update
-RUN apt install -y build-essential code direnv pkg-config libpython3.10-dev openjdk-11-jdk libpq5 libpq-dev npm python3-pip musl-tools cmake zlib1g-dev libsasl2-dev python3-venv clang liblzma-dev libxml2-dev libxmlsec1-dev
+RUN apt install -y build-essential code direnv
+RUN apt install -y pkg-config libpython3.10-dev openjdk-11-jdk libpq5 libpq-dev npm python3-pip musl-tools cmake zlib1g-dev libsasl2-dev python3-venv clang liblzma-dev libxml2-dev libxmlsec1-dev
+RUN apt install -y linux-headers-$(uname -r) build-essential libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev icu-devtools libicu-dev
 
 # Setup rust
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-RUN rustup toolchain install 1.72.1
-RUN rustup default 1.72.1
-RUN rustup target add wasm32-wasi --toolchain=1.72.1
-RUN cargo install cargo-nextest
+# RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain 1.72.1
+# RUN rustup toolchain install 1.72.1
+# RUN rustup default 1.72.1
+# RUN rustup target add wasm32-wasi --toolchain=1.72.1
+# RUN cargo install cargo-nextest
 
 # Install mise
 RUN wget https://mise.jdx.dev/mise-latest-linux-x64 && \
