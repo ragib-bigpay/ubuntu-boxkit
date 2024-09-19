@@ -6,8 +6,8 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="ragib@example.com"
 
 # Setup essentials
-RUN apt update
-RUN apt install -y apt-transport-https curl git gpg wget 
+# RUN apt update
+# RUN apt install -y apt-transport-https curl git gpg wget 
 
 # Setup vscode repo
 RUN echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections
@@ -18,6 +18,7 @@ RUN rm -f packages.microsoft.gpg
 
 # Setup vscode and build dependencies
 RUN apt update
+RUN apt install -y apt-transport-https curl git gpg wget
 RUN apt install -y build-essential code direnv
 RUN apt install -y pkg-config libpython3.10-dev openjdk-11-jdk libpq5 libpq-dev npm python3-pip musl-tools cmake zlib1g-dev libsasl2-dev python3-venv clang liblzma-dev libxml2-dev libxmlsec1-dev
 RUN apt install -y linux-headers-$(uname -r) build-essential libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev icu-devtools libicu-dev
