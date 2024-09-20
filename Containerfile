@@ -33,7 +33,7 @@ RUN dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get install -y \
     # common tools
-    git jq direnv
+    git jq direnv \
     # dev deps
     pkg-config libpython3.10-dev openjdk-11-jdk libpq5 libpq-dev npm python3-pip musl-tools cmake zlib1g-dev libsasl2-dev python3-venv clang liblzma-dev libxml2-dev libxmlsec1-dev \
     # asdf-postgres deps
