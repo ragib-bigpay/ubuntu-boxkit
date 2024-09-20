@@ -33,10 +33,10 @@ RUN apt update
 RUN apt install -y \
     # essentials
     apt-transport-https curl direnv git gpg jq wget build-essential \
-    # vscode
-    code \
-    # google-chrome
-    google-chrome-stable \
+    # # vscode
+    # code \
+    # # google-chrome
+    # google-chrome-stable \
     # dev deps
     pkg-config libpython3.10-dev openjdk-11-jdk libpq5 libpq-dev npm python3-pip musl-tools cmake zlib1g-dev libsasl2-dev python3-venv clang liblzma-dev libxml2-dev libxmlsec1-dev \
     # asdf-postgres deps
