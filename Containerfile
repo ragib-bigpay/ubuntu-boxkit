@@ -5,20 +5,9 @@ LABEL com.github.containers.toolbox="true" \
       summary="A cloud-native terminal experience" \
       maintainer="ragib@example.com"
 
-# Setup Android Studio
-# RUN cd /opt && \
-#     wget -q https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2024.1.2.13/android-studio-2024.1.2.13-linux.tar.gz && \
-#     tar -xf android-studio-2024.1.2.13-linux.tar.gz && \
-#     rm android-studio-2024.1.2.13-linux.tar.gz
-# RUN cd /opt/android-studio && ln -s jbr jre
-# RUN echo 'if ! [[ "$PATH" =~ "/opt/android-studio/bin:" ]]; then' >> /etc/profile
-# RUN echo '    PATH="/opt/android-studio/bin:$PATH"' >> /etc/profile
-# RUN echo 'fi' >> /etc/profile
-# RUN echo 'export PATH' >> /etc/profile
-
 # Install essential packages
 RUN apt-get update && \
-    apt-get install -y apt-transport-https curl git gpg jq wget software-properties-common && \
+    apt-get install -y curl wget gpg apt-transport-https software-properties-common && \
     apt-get clean
 
 # Setup android-studio repo
@@ -41,12 +30,10 @@ RUN curl -fSsL https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor
 
 # Install packages
 RUN dpkg --add-architecture i386 && \
-    apt update && \
-    apt install -y \
-    # # vscode
-    # code \
-    # # google-chrome
-    # google-chrome-stable \
+    apt-get update && \
+    apt-get install -y \
+    # common tools
+    git jq direnv
     # dev deps
     pkg-config libpython3.10-dev openjdk-11-jdk libpq5 libpq-dev npm python3-pip musl-tools cmake zlib1g-dev libsasl2-dev python3-venv clang liblzma-dev libxml2-dev libxmlsec1-dev \
     # asdf-postgres deps
