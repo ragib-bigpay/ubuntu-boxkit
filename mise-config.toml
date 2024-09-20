@@ -2,6 +2,6 @@
 node = "21.6.2"
 postgres = "12"
 python = "3.10.12"
-flutter = "3.10.6"
+flutter = "3.22.2"
 pre-commit = "3.8.0"
 "cargo:cargo-nextest" = "0.9.50"
