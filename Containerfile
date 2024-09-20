@@ -40,6 +40,8 @@ RUN dpkg --add-architecture i386 && \
     linux-headers-$(uname -r) build-essential libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev icu-devtools libicu-dev \
     # android studio deps
     libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386 libglib2.0-bin \
+    # android studio emulator deps
+    libncurses5 libpulse0 libxtst6 git libglib2.0-bin build-essential libxft2 qemu qemu-kvm libnotify4 libglu1 xvfb \
     # flutter deps
     clang cmake ninja-build pkg-config libgtk-3-dev && \
     apt-get clean
