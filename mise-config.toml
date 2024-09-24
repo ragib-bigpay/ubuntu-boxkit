@@ -3,6 +3,7 @@
 "cargo:mdbook" = "0.4.37"
 flutter = "3.22.2"
 gcloud = "latest"
+java = "11"
 node = "21.6.2"
 postgres = "12"
 pre-commit = "latest"
