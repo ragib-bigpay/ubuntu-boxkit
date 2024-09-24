@@ -1,7 +1,9 @@
 [tools]
+"cargo:cargo-nextest" = "0.9.50"
+"cargo:mdbook" = "0.4.37"
+flutter = "3.22.2"
+gcloud = "latest"
 node = "21.6.2"
 postgres = "12"
+pre-commit = "latest"
 python = "3.10.12"
-flutter = "3.22.2"
-pre-commit = "3.8.0"
-"cargo:cargo-nextest" = "0.9.50"
